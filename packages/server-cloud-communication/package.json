@@ -2,8 +2,11 @@
 	"name": "@rocket.chat/server-cloud-communication",
 	"version": "0.0.2",
 	"private": true,
+	"dependencies": {
+		"@rocket.chat/core-typings": "workspace:^",
+		"@rocket.chat/models": "workspace:^"
+	},
 	"devDependencies": {
-		"@rocket.chat/license": "workspace:^",
 		"eslint": "~8.45.0",
 		"typescript": "~5.7.2"
 	},

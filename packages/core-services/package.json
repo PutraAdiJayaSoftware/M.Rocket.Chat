@@ -36,9 +36,13 @@
 		"@rocket.chat/core-typings": "workspace:^",
 		"@rocket.chat/icons": "~0.39.0",
 		"@rocket.chat/message-parser": "workspace:^",
+		"@rocket.chat/model-typings": "workspace:^",
 		"@rocket.chat/models": "workspace:^",
 		"@rocket.chat/rest-typings": "workspace:^",
 		"@rocket.chat/tracing": "workspace:^",
-		"@rocket.chat/ui-kit": "workspace:~"
+		"@rocket.chat/ui-kit": "workspace:~",
+		"@types/sharp": "^0.31.1",
+		"mongodb": "^5.9.2",
+		"sharp": "^0.32.6"
 	}
 }

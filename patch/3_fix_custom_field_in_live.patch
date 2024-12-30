@@ -1,0 +1,48 @@
+Subject: [PATCH] fix custom field in live
+---
+Index: apps/meteor/client/hooks/roomActions/useCannedResponsesRoomAction.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/client/hooks/roomActions/useCannedResponsesRoomAction.ts b/apps/meteor/client/hooks/roomActions/useCannedResponsesRoomAction.ts
+--- a/apps/meteor/client/hooks/roomActions/useCannedResponsesRoomAction.ts	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
++++ b/apps/meteor/client/hooks/roomActions/useCannedResponsesRoomAction.ts	(revision a35174ad0e441a95269c51a99258e51592ae5714)
+@@ -7,16 +7,16 @@
+ const CannedResponse = lazy(() => import('../../omnichannel/cannedResponses/contextualBar/CannedResponse/WrapCannedResponseList'));
+ 
+ export const useCannedResponsesRoomAction = () => {
+-	const licensed = useHasLicenseModule('canned-responses') === true;
+-	const enabled = useSetting('Canned_Responses_Enable', false);
++	const licensed =  useHasLicenseModule('canned-responses') === true;
++	const enabled =  useSetting('Canned_Responses_Enable', false);
+ 
+ 	return useMemo((): RoomToolboxActionConfig | undefined => {
+ 		if (!licensed || !enabled) {
+-			return undefined;
++			return undefined; true
+ 		}
+ 
+ 		return {
+-			id: 'canned-responses',
++			id: 'canned-responses', 
+ 			groups: ['live'],
+ 			title: 'Canned_Responses',
+ 			icon: 'canned-response',
+Index: apps/meteor/client/omnichannel/additionalForms/CustomFieldsAdditionalForm.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/client/omnichannel/additionalForms/CustomFieldsAdditionalForm.tsx b/apps/meteor/client/omnichannel/additionalForms/CustomFieldsAdditionalForm.tsx
+--- a/apps/meteor/client/omnichannel/additionalForms/CustomFieldsAdditionalForm.tsx	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
++++ b/apps/meteor/client/omnichannel/additionalForms/CustomFieldsAdditionalForm.tsx	(revision a35174ad0e441a95269c51a99258e51592ae5714)
+@@ -42,7 +42,7 @@
+ 	const publicField = useUniqueId();
+ 
+ 	if (!hasLicense) {
+-		return null;
++		// return null;
+ 	}
+ 
+ 	return (

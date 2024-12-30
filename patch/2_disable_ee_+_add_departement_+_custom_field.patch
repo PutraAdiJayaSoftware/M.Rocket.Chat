@@ -1,0 +1,234 @@
+Subject: [PATCH] disable ee + add departement + custom field
+---
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+--- a/.env	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/.env	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -1,13 +1,14 @@
+ export ADMIN_USERNAME=putra
+-export ADMIN_NAME=wijayadi saputra
++export ADMIN_NAME='wijayadi saputra'
+ export ADMIN_PASS=putra
+ export ADMIN_EMAIL=putra@test.com
+ 
+ export Show_Setup_Wizard=false
+ 
+-export ROOT_URL=http://localhost:3000  
+-export PORT=3000  
+-export MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01  
++export ROOT_URL=http://localhost:3000
++export PORT=3000
++export MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01
+ export MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01
+ 
+-export NODE_ENV=development
+\ No newline at end of file
++export NODE_ENV=development
++export ADMIN_PASS=true
+\ No newline at end of file
+Index: apps/meteor/app/livechat/server/lib/isDepartmentCreationAvailable.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/app/livechat/server/lib/isDepartmentCreationAvailable.ts b/apps/meteor/app/livechat/server/lib/isDepartmentCreationAvailable.ts
+--- a/apps/meteor/app/livechat/server/lib/isDepartmentCreationAvailable.ts	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/app/livechat/server/lib/isDepartmentCreationAvailable.ts	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -3,5 +3,5 @@
+ 
+ export const isDepartmentCreationAvailable = makeFunction(async (): Promise<boolean> => {
+ 	// Only one department can exist at a time
+-	return (await LivechatDepartment.countTotal()) === 0;
++	return (await LivechatDepartment.countTotal()) <= 200;
+ });
+Index: apps/meteor/client/views/omnichannel/departments/DepartmentsPage.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/client/views/omnichannel/departments/DepartmentsPage.tsx b/apps/meteor/client/views/omnichannel/departments/DepartmentsPage.tsx
+--- a/apps/meteor/client/views/omnichannel/departments/DepartmentsPage.tsx	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/client/views/omnichannel/departments/DepartmentsPage.tsx	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -39,7 +39,7 @@
+ 		<Page flexDirection='row'>
+ 			<Page>
+ 				<PageHeader title={t('Departments')}>
+-					<Button onClick={onAddNew}>{t('Create_department')}</Button>
++					<Button onClick={onAddNew}>{t('Create_department')}</Button> 
+ 				</PageHeader>
+ 				<Tabs>
+ 					<Tabs.Item key='departments' selected={!context} onClick={() => handleTabClick(undefined)}>
+Index: apps/meteor/client/views/omnichannel/departments/NewDepartment.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/client/views/omnichannel/departments/NewDepartment.tsx b/apps/meteor/client/views/omnichannel/departments/NewDepartment.tsx
+--- a/apps/meteor/client/views/omnichannel/departments/NewDepartment.tsx	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/client/views/omnichannel/departments/NewDepartment.tsx	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -17,10 +17,11 @@
+ 	const setModal = useSetModal();
+ 	const getDepartmentCreationAvailable = useEndpoint('GET', '/v1/livechat/department/isDepartmentCreationAvailable');
+ 	const { data, isLoading, isError } = useQuery(['getDepartments'], () => getDepartmentCreationAvailable(), {
+-		onSuccess: (data) => {
++		onSuccess: (data) => {  
+ 			if (data.isDepartmentCreationAvailable === false) {
+-				setModal(<EnterpriseDepartmentsModal closeModal={(): void => setModal(null)} />);
+-			}
++				data.isDepartmentCreationAvailable = true;
++				// setModal(<EnterpriseDepartmentsModal closeModal={(): void => setModal(null)} />);
++			} 
+ 		},
+ 	});
+ 
+Index: apps/meteor/ee/server/apps/communication/rest.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/ee/server/apps/communication/rest.ts b/apps/meteor/ee/server/apps/communication/rest.ts
+--- a/apps/meteor/ee/server/apps/communication/rest.ts	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/ee/server/apps/communication/rest.ts	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -1216,35 +1216,36 @@
+ 				},
+ 			},
+ 		);
+-
+-		this.api.addRoute(
+-			'app-request/stats',
+-			{ authRequired: true },
+-			{
+-				async get() {
+-					const baseUrl = orchestrator.getMarketplaceUrl();
+-					const headers = getDefaultHeaders();
+-
+-					const token = await getWorkspaceAccessToken();
+-					if (token) {
+-						headers.Authorization = `Bearer ${token}`;
+-					}
+-
+-					try {
+-						const request = await fetch(`${baseUrl}/v1/app-request/stats`, { headers });
+-						const result = await request.json();
+-						if (!request.ok) {
+-							throw new Error(result.error);
+-						}
+-						return API.v1.success(result);
+-					} catch (e: any) {
+-						orchestrator.getRocketChatLogger().error('Error getting the app requests stats from marketplace', e.message);
+-
+-						return API.v1.failure(e.message);
+-					}
+-				},
+-			},
+-		);
++		if (false) {
++			this.api.addRoute(
++				'app-request/stats',
++				{ authRequired: true },
++				{
++					async get() {
++						const baseUrl = orchestrator.getMarketplaceUrl();
++						const headers = getDefaultHeaders();
++	
++						const token = await getWorkspaceAccessToken();
++						if (token) {
++							headers.Authorization = `Bearer ${token}`;
++						}
++						
++						try {
++							const request = await fetch(`${baseUrl}/v1/app-request/stats`, { headers });
++							const result = await request.json();
++							if (!request.ok) {
++								throw new Error(result.error);
++							}
++							return API.v1.success(result);
++						} catch (e: any) {
++							orchestrator.getRocketChatLogger().error('Error getting the app requests stats from marketplace', e.message);
++	
++							return API.v1.failure(e.message);
++						}
++					},
++				},
++			);
++		}
+ 
+ 		this.api.addRoute(
+ 			'app-request/markAsSeen',
+Index: apps/meteor/ee/server/apps/orchestrator.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/ee/server/apps/orchestrator.js b/apps/meteor/ee/server/apps/orchestrator.js
+--- a/apps/meteor/ee/server/apps/orchestrator.js	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/ee/server/apps/orchestrator.js	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -48,7 +48,7 @@
+ 		if (typeof process.env.OVERWRITE_INTERNAL_MARKETPLACE_URL === 'string' && process.env.OVERWRITE_INTERNAL_MARKETPLACE_URL !== '') {
+ 			this._marketplaceUrl = process.env.OVERWRITE_INTERNAL_MARKETPLACE_URL;
+ 		} else {
+-			this._marketplaceUrl = 'https://marketplace.rocket.chat';
++			this._marketplaceUrl = 'https://marketplace.mplus.chat';
+ 		}
+ 
+ 		this._model = AppsModel;
+Index: apps/meteor/ee/server/patches/isDepartmentCreationAvailable.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/ee/server/patches/isDepartmentCreationAvailable.ts b/apps/meteor/ee/server/patches/isDepartmentCreationAvailable.ts
+--- a/apps/meteor/ee/server/patches/isDepartmentCreationAvailable.ts	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/ee/server/patches/isDepartmentCreationAvailable.ts	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -1,12 +1,7 @@
+-import { License } from '@rocket.chat/license';
+-
+ import { isDepartmentCreationAvailable } from '../../../app/livechat/server/lib/isDepartmentCreationAvailable';
+ 
+ isDepartmentCreationAvailable.patch(async (next) => {
+ 	// Skip the standard check when Livechat Enterprise is enabled, as it allows unlimited departments
+-	if (License.hasModule('livechat-enterprise')) {
+-		return true;
+-	}
+-
++	
+ 	return next();
+ });
+Index: apps/meteor/server/ee.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/server/ee.ts b/apps/meteor/server/ee.ts
+--- a/apps/meteor/server/ee.ts	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/server/ee.ts	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -1,2 +1,6 @@
+-export { startLicense } from '../ee/app/license/server/startup';
+-export { registerEEBroker } from '../ee/server';
++// export { startLicense } from '../ee/app/license/server/startup';
++// export { registerEEBroker } from '../ee/server';
++
++// This file is used in FOSS builds of Rocket.Chat to replace the default ee.ts file with mocked functions
++export const startLicense = async () => undefined;
++export const registerEEBroker = async () => undefined;
+Index: apps/meteor/tests/unit/app/apps/server/mocks/orchestrator.mock.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apps/meteor/tests/unit/app/apps/server/mocks/orchestrator.mock.js b/apps/meteor/tests/unit/app/apps/server/mocks/orchestrator.mock.js
+--- a/apps/meteor/tests/unit/app/apps/server/mocks/orchestrator.mock.js	(revision 89709c445d6733e5bae2f305d0d635d37ae016a1)
++++ b/apps/meteor/tests/unit/app/apps/server/mocks/orchestrator.mock.js	(revision cc87e265dec7542191a8e795ddbc3c9e15692890)
+@@ -2,7 +2,7 @@
+ 
+ export class AppServerOrchestratorMock {
+ 	constructor() {
+-		this._marketplaceUrl = 'https://marketplace.rocket.chat';
++		this._marketplaceUrl = 'https://marketplace.mplus.chat';
+ 
+ 		this._model = {};
+ 		this._logModel = {};

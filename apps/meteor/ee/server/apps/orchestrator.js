@@ -48,7 +48,7 @@ export class AppServerOrchestrator {
 		if (typeof process.env.OVERWRITE_INTERNAL_MARKETPLACE_URL === 'string' && process.env.OVERWRITE_INTERNAL_MARKETPLACE_URL !== '') {
 			this._marketplaceUrl = process.env.OVERWRITE_INTERNAL_MARKETPLACE_URL;
 		} else {
-			this._marketplaceUrl = 'https://marketplace.rocket.chat';
+			this._marketplaceUrl = 'https://marketplace.mplus.chat';
 		}
 
 		this._model = AppsModel;

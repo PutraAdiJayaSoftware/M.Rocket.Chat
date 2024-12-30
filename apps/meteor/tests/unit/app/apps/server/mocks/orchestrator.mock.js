@@ -2,7 +2,7 @@
 
 export class AppServerOrchestratorMock {
 	constructor() {
-		this._marketplaceUrl = 'https://marketplace.rocket.chat';
+		this._marketplaceUrl = 'https://marketplace.mplus.chat';
 
 		this._model = {};
 		this._logModel = {};

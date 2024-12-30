@@ -17,10 +17,11 @@ const NewDepartment = ({ id }: NewDepartmentProps) => {
 	const setModal = useSetModal();
 	const getDepartmentCreationAvailable = useEndpoint('GET', '/v1/livechat/department/isDepartmentCreationAvailable');
 	const { data, isLoading, isError } = useQuery(['getDepartments'], () => getDepartmentCreationAvailable(), {
-		onSuccess: (data) => {
+		onSuccess: (data) => {  
 			if (data.isDepartmentCreationAvailable === false) {
-				setModal(<EnterpriseDepartmentsModal closeModal={(): void => setModal(null)} />);
-			}
+				data.isDepartmentCreationAvailable = true;
+				// setModal(<EnterpriseDepartmentsModal closeModal={(): void => setModal(null)} />);
+			} 
 		},
 	});
 

@@ -39,7 +39,7 @@ const DepartmentsPage = () => {
 		<Page flexDirection='row'>
 			<Page>
 				<PageHeader title={t('Departments')}>
-					<Button onClick={onAddNew}>{t('Create_department')}</Button>
+					<Button onClick={onAddNew}>{t('Create_department')}</Button> 
 				</PageHeader>
 				<Tabs>
 					<Tabs.Item key='departments' selected={!context} onClick={() => handleTabClick(undefined)}>

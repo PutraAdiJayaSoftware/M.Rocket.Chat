@@ -1216,35 +1216,36 @@ export class AppsRestApi {
 				},
 			},
 		);
-
-		this.api.addRoute(
-			'app-request/stats',
-			{ authRequired: true },
-			{
-				async get() {
-					const baseUrl = orchestrator.getMarketplaceUrl();
-					const headers = getDefaultHeaders();
-
-					const token = await getWorkspaceAccessToken();
-					if (token) {
-						headers.Authorization = `Bearer ${token}`;
-					}
-
-					try {
-						const request = await fetch(`${baseUrl}/v1/app-request/stats`, { headers });
-						const result = await request.json();
-						if (!request.ok) {
-							throw new Error(result.error);
+		if (false) {
+			this.api.addRoute(
+				'app-request/stats',
+				{ authRequired: true },
+				{
+					async get() {
+						const baseUrl = orchestrator.getMarketplaceUrl();
+						const headers = getDefaultHeaders();
+	
+						const token = await getWorkspaceAccessToken();
+						if (token) {
+							headers.Authorization = `Bearer ${token}`;
 						}
-						return API.v1.success(result);
-					} catch (e: any) {
-						orchestrator.getRocketChatLogger().error('Error getting the app requests stats from marketplace', e.message);
-
-						return API.v1.failure(e.message);
-					}
+						
+						try {
+							const request = await fetch(`${baseUrl}/v1/app-request/stats`, { headers });
+							const result = await request.json();
+							if (!request.ok) {
+								throw new Error(result.error);
+							}
+							return API.v1.success(result);
+						} catch (e: any) {
+							orchestrator.getRocketChatLogger().error('Error getting the app requests stats from marketplace', e.message);
+	
+							return API.v1.failure(e.message);
+						}
+					},
 				},
-			},
-		);
+			);
+		}
 
 		this.api.addRoute(
 			'app-request/markAsSeen',

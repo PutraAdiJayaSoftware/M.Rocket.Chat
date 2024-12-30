@@ -7,16 +7,16 @@ import { useHasLicenseModule } from '../useHasLicenseModule';
 const CannedResponse = lazy(() => import('../../omnichannel/cannedResponses/contextualBar/CannedResponse/WrapCannedResponseList'));
 
 export const useCannedResponsesRoomAction = () => {
-	const licensed = useHasLicenseModule('canned-responses') === true;
-	const enabled = useSetting('Canned_Responses_Enable', false);
+	const licensed =  useHasLicenseModule('canned-responses') === true;
+	const enabled =  useSetting('Canned_Responses_Enable', false);
 
 	return useMemo((): RoomToolboxActionConfig | undefined => {
 		if (!licensed || !enabled) {
-			return undefined;
+			return undefined; true
 		}
 
 		return {
-			id: 'canned-responses',
+			id: 'canned-responses', 
 			groups: ['live'],
 			title: 'Canned_Responses',
 			icon: 'canned-response',

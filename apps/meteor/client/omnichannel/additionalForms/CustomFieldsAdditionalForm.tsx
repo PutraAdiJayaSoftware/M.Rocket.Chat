@@ -42,7 +42,7 @@ const CustomFieldsAdditionalForm = ({ className }: { className?: ComponentProps<
 	const publicField = useUniqueId();
 
 	if (!hasLicense) {
-		return null;
+		// return null;
 	}
 
 	return (

@@ -10,7 +10,9 @@ void License.onToggledFeature('canned-responses', {
 	},
 	down: () => {
 		// when the license is disabled, we can just disable the feature
-		BeforeSaveCannedResponse.enabled = false;
+		// BeforeSaveCannedResponse.enabled = false;
+		
+		BeforeSaveCannedResponse.enabled = settings.get('Canned_Responses_Enable');
 	},
 });
 

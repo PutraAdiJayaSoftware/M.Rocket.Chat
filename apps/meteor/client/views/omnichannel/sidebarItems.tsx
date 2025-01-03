@@ -68,6 +68,12 @@ export const {
 		permissionGranted: (): boolean => hasPermission('view-livechat-appearance'),
 	},
 	{
+		href: '/omnichannel/canned-responses',
+		icon: 'canned-response',
+		i18nLabel: 'Canned_Responses',
+		permissionGranted: (): boolean => hasPermission('view-livechat-appearance'),
+	},
+	{
 		href: '/omnichannel/webhooks',
 		icon: 'code',
 		i18nLabel: 'Webhooks',

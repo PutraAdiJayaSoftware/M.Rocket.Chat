@@ -4,12 +4,10 @@ import { lazy, useMemo } from 'react';
 import type { RoomToolboxActionConfig } from '../../views/room/contexts/RoomToolboxContext';
 const CannedResponse = lazy(() => import('../../omnichannel/cannedResponses/contextualBar/CannedResponse/WrapCannedResponseList'));
 
-export const useCannedResponsesRoomAction = () => {
-	const licensed = true; 
-	const enabled =  true;// useSetting('Canned_Responses_Enable', false);
-	// console.log("Logger Canned",{ licensed, enabled });
+export const useCannedResponsesRoomAction = () => { 
+	const enabled = useSetting('Canned_Responses_Enable', false);
 	return useMemo((): RoomToolboxActionConfig | undefined => {
-		if (!licensed || !enabled) {
+		if (!enabled) {
 			return undefined;
 		}
 
@@ -21,5 +19,5 @@ export const useCannedResponsesRoomAction = () => {
 			tabComponent: CannedResponse,
 			order: 0,
 		};
-	}, [enabled, licensed]);
+	}, [enabled, false]);
 };

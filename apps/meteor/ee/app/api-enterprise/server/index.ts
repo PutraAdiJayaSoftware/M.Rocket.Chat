@@ -1,12 +1,7 @@
-import { License } from '@rocket.chat/license'; 
+// require('./canned-responses');
+// require('./voip-freeswitch'); 
 
-require('./canned-responses');
-
-await License.onLicense('canned-responses', async () => {
-	delete require.cache[require.resolve('./canned-responses')];
-	require('./canned-responses');
-});
-
-License.onValidateLicense(async () => {
-	await import('./voip-freeswitch');
+import { Meteor } from 'meteor/meteor';
+Meteor.startup(async () => {
+	await import("./canned-responses"); 
 });

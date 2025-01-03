@@ -8,7 +8,7 @@ export const createSettings = async (): Promise<void> => {
 		section: 'Canned_Responses',
 		type: 'boolean',
 		public: true,
-		enterprise: true,
+		enterprise: false,
 		invalidValue: false,
 		modules: ['canned-responses'],
 		enableQuery: omnichannelEnabledQuery,

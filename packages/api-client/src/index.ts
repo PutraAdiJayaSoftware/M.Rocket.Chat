@@ -215,6 +215,18 @@ export class RestClient implements RestClientInterface {
 				return response;
 			}
 
+			if (response.status === 405) {
+				console.error(`[API Client] Method Not Allowed Error: ${method} ${endpoint}`, {
+					status: response.status,
+					statusText: response.statusText,
+					method,
+					endpoint,
+					url: `${this.baseUrl}${endpoint}`,
+					headers: Object.fromEntries(response.headers.entries()),
+					requestHeaders: { ...this.getCredentialsAsHeaders(), ...this.headers, ...headers },
+				});
+			}
+
 			if (response.status !== 400) {
 				return Promise.reject(response);
 			}

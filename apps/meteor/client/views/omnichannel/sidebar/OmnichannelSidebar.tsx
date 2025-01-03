@@ -14,7 +14,7 @@ const OmnichannelSidebar = () => {
 	const { sidebar } = useLayout();
 
 	const currentPath = useCurrentRoutePath();
-
+	
 	return (
 		<SettingsProvider privileged>
 			<Sidebar>

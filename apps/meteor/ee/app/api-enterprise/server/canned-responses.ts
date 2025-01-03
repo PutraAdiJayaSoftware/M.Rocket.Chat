@@ -87,8 +87,10 @@ API.v1.addRoute(
 				total,
 			});
 		},
-		async post() {
+		async post() { 
 			const { _id, shortcut, text, scope, departmentId, tags } = this.bodyParams;
+			console.log(`Request: shortcut=${shortcut}, text=${text}, scope=${scope}`);
+			
 			await Meteor.callAsync('saveCannedResponse', _id, {
 				shortcut,
 				text,

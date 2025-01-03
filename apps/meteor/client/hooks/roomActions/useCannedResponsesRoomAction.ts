@@ -2,14 +2,12 @@ import { useSetting } from '@rocket.chat/ui-contexts';
 import { lazy, useMemo } from 'react';
 
 import type { RoomToolboxActionConfig } from '../../views/room/contexts/RoomToolboxContext';
-import { useHasLicenseModule } from '../useHasLicenseModule';
-
 const CannedResponse = lazy(() => import('../../omnichannel/cannedResponses/contextualBar/CannedResponse/WrapCannedResponseList'));
 
 export const useCannedResponsesRoomAction = () => {
-	const licensed = true;// useHasLicenseModule('canned-responses') === true;
+	const licensed = true; 
 	const enabled =  true;// useSetting('Canned_Responses_Enable', false);
-	console.log({ licensed, enabled });
+	// console.log("Logger Canned",{ licensed, enabled });
 	return useMemo((): RoomToolboxActionConfig | undefined => {
 		if (!licensed || !enabled) {
 			return undefined;

@@ -35,11 +35,7 @@ const ComposerPopupProvider = ({ children, room }: ComposerPopupProviderProps) =
 	const userSpotlight = useMethod('spotlight');
 	const suggestionsCount = useSetting('Number_of_users_autocomplete_suggestions', 5);
 	const cannedResponseEnabled = useSetting('Canned_Responses_Enable', true);
-	
-	const logCannedResponse = (cannedResponse: CannedResponse) => {
-		userSpotlight?.callAsync('logCannedResponse', cannedResponse._id, rid);
-	};
-	
+ 	
 	const [recentEmojis] = useLocalStorage('emoji.recent', []);
 	const isOmnichannel = isOmnichannelRoom(room);
 	const useEmoji = useUserPreference('useEmojis');

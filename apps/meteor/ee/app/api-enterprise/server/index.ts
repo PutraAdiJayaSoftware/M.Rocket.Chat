@@ -1,7 +1,10 @@
-import { License } from '@rocket.chat/license';
+import { License } from '@rocket.chat/license'; 
+
+require('./canned-responses');
 
 await License.onLicense('canned-responses', async () => {
-	await import('./canned-responses');
+	delete require.cache[require.resolve('./canned-responses')];
+	require('./canned-responses');
 });
 
 License.onValidateLicense(async () => {

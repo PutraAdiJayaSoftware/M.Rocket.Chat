@@ -41,10 +41,12 @@ const CreateCannedResponseModal = ({
 	} = methods;
 
 	const saveCannedResponse = useEndpoint('POST', '/v1/canned-responses');
-
+	
 	const handleCreate = useCallback(
 		async ({ departmentId, ...data }) => {
 			try {
+				console.log('[CreateCannedResponseModal] handleCreate', cannedResponseData?._id, { ...data, departmentId });
+
 				await saveCannedResponse({
 					_id: cannedResponseData?._id,
 					...data,

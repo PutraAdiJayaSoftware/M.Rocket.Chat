@@ -8261,9 +8261,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/account-service@workspace:ee/apps/account-service":
+"@rocket.chat/account-service@workspace:foss/apps/account-service":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/account-service@workspace:ee/apps/account-service"
+  resolution: "@rocket.chat/account-service@workspace:foss/apps/account-service"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/core-typings": "workspace:^"
@@ -8396,9 +8396,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/authorization-service@workspace:ee/apps/authorization-service":
+"@rocket.chat/authorization-service@workspace:foss/apps/authorization-service":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/authorization-service@workspace:ee/apps/authorization-service"
+  resolution: "@rocket.chat/authorization-service@workspace:foss/apps/authorization-service"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/core-typings": "workspace:^"
@@ -8555,9 +8555,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/ddp-streamer@workspace:ee/apps/ddp-streamer":
+"@rocket.chat/ddp-streamer@workspace:foss/apps/ddp-streamer":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/ddp-streamer@workspace:ee/apps/ddp-streamer"
+  resolution: "@rocket.chat/ddp-streamer@workspace:foss/apps/ddp-streamer"
   dependencies:
     "@rocket.chat/apps-engine": "workspace:^"
     "@rocket.chat/core-services": "workspace:^"
@@ -8940,9 +8940,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/license@workspace:^, @rocket.chat/license@workspace:ee/packages/license":
+"@rocket.chat/license@workspace:^, @rocket.chat/license@workspace:foss/packages/license":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/license@workspace:ee/packages/license"
+  resolution: "@rocket.chat/license@workspace:foss/packages/license"
   dependencies:
     "@rocket.chat/core-typings": "workspace:^"
     "@rocket.chat/jest-presets": "workspace:~"
@@ -9573,9 +9573,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/network-broker@workspace:^, @rocket.chat/network-broker@workspace:ee/packages/network-broker":
+"@rocket.chat/network-broker@workspace:^, @rocket.chat/network-broker@workspace:foss/packages/network-broker":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/network-broker@workspace:ee/packages/network-broker"
+  resolution: "@rocket.chat/network-broker@workspace:foss/packages/network-broker"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/eslint-config": "workspace:^"
@@ -9594,9 +9594,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/omnichannel-services@workspace:^, @rocket.chat/omnichannel-services@workspace:ee/packages/omnichannel-services":
+"@rocket.chat/omnichannel-services@workspace:^, @rocket.chat/omnichannel-services@workspace:foss/packages/omnichannel-services":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/omnichannel-services@workspace:ee/packages/omnichannel-services"
+  resolution: "@rocket.chat/omnichannel-services@workspace:foss/packages/omnichannel-services"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/core-typings": "workspace:^"
@@ -9627,9 +9627,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/omnichannel-transcript@workspace:ee/apps/omnichannel-transcript":
+"@rocket.chat/omnichannel-transcript@workspace:foss/apps/omnichannel-transcript":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/omnichannel-transcript@workspace:ee/apps/omnichannel-transcript"
+  resolution: "@rocket.chat/omnichannel-transcript@workspace:foss/apps/omnichannel-transcript"
   dependencies:
     "@react-pdf/renderer": "npm:^3.4.5"
     "@rocket.chat/core-services": "workspace:^"
@@ -9711,9 +9711,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/pdf-worker@workspace:^, @rocket.chat/pdf-worker@workspace:ee/packages/pdf-worker":
+"@rocket.chat/pdf-worker@workspace:^, @rocket.chat/pdf-worker@workspace:foss/packages/pdf-worker":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/pdf-worker@workspace:ee/packages/pdf-worker"
+  resolution: "@rocket.chat/pdf-worker@workspace:foss/packages/pdf-worker"
   dependencies:
     "@react-pdf/renderer": "npm:^3.4.5"
     "@rocket.chat/core-typings": "workspace:^"
@@ -9771,9 +9771,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/presence-service@workspace:ee/apps/presence-service":
+"@rocket.chat/presence-service@workspace:foss/apps/presence-service":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/presence-service@workspace:ee/apps/presence-service"
+  resolution: "@rocket.chat/presence-service@workspace:foss/apps/presence-service"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/core-typings": "workspace:^"
@@ -9804,9 +9804,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/presence@workspace:^, @rocket.chat/presence@workspace:ee/packages/presence":
+"@rocket.chat/presence@workspace:^, @rocket.chat/presence@workspace:foss/packages/presence":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/presence@workspace:ee/packages/presence"
+  resolution: "@rocket.chat/presence@workspace:foss/packages/presence"
   dependencies:
     "@babel/core": "npm:~7.26.0"
     "@babel/preset-env": "npm:~7.26.0"
@@ -9835,9 +9835,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/queue-worker@workspace:ee/apps/queue-worker":
+"@rocket.chat/queue-worker@workspace:foss/apps/queue-worker":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/queue-worker@workspace:ee/apps/queue-worker"
+  resolution: "@rocket.chat/queue-worker@workspace:foss/apps/queue-worker"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/core-typings": "workspace:^"
@@ -9981,9 +9981,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/stream-hub-service@workspace:ee/apps/stream-hub-service":
+"@rocket.chat/stream-hub-service@workspace:foss/apps/stream-hub-service":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/stream-hub-service@workspace:ee/apps/stream-hub-service"
+  resolution: "@rocket.chat/stream-hub-service@workspace:foss/apps/stream-hub-service"
   dependencies:
     "@rocket.chat/core-services": "workspace:^"
     "@rocket.chat/core-typings": "workspace:^"
@@ -10242,9 +10242,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/ui-theming@workspace:^, @rocket.chat/ui-theming@workspace:ee/packages/ui-theming":
+"@rocket.chat/ui-theming@workspace:^, @rocket.chat/ui-theming@workspace:foss/packages/ui-theming":
   version: 0.0.0-use.local
-  resolution: "@rocket.chat/ui-theming@workspace:ee/packages/ui-theming"
+  resolution: "@rocket.chat/ui-theming@workspace:foss/packages/ui-theming"
   dependencies:
     "@rocket.chat/css-in-js": "npm:~0.31.25"
     "@rocket.chat/fuselage": "npm:^0.59.4"
@@ -34208,9 +34208,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"rocketchat-services@workspace:apps/meteor/ee/server/services":
+"rocketchat-services@workspace:apps/meteor/foss/server/services":
   version: 0.0.0-use.local
-  resolution: "rocketchat-services@workspace:apps/meteor/ee/server/services"
+  resolution: "rocketchat-services@workspace:apps/meteor/foss/server/services"
   dependencies:
     "@rocket.chat/apps-engine": "workspace:^"
     "@rocket.chat/core-services": "workspace:^"

@@ -11,9 +11,9 @@ import { configureLoginServices } from './configuration';
 import { configureLogLevel } from './configureLogLevel';
 import { registerServices } from './services/startup';
 import { startup } from './startup';
-import { startLicense } from '../ee/app/license/server/startup';
-import { registerEEBroker } from '../ee/server';
-import { startFederationService } from '../ee/server/startup/services';
+import { startLicense } from '../foss/app/license/server/startup';
+import { registerEEBroker } from '../foss/server';
+import { startFederationService } from '../foss/server/startup/services';
 
 import './routes';
 import '../app/lib/server/startup';

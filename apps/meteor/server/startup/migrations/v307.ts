@@ -3,7 +3,7 @@ import type { AppSignatureManager } from '@rocket.chat/apps-engine/server/manage
 import type { IAppStorageItem } from '@rocket.chat/apps-engine/server/storage';
 import { License } from '@rocket.chat/license';
 
-import type { AppRealStorage } from '../../../ee/server/apps/storage';
+import type { AppRealStorage } from '../../../foss/server/apps/storage';
 import { addMigration } from '../../lib/migrations';
 
 addMigration({

@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { describe } from 'mocha';
 
 import { settings } from '../../../../app/settings/server/cached';
-import { VoipFreeSwitchService } from '../../../../ee/server/local-services/voip-freeswitch/service';
+import { VoipFreeSwitchService } from '../../../../foss/server/local-services/voip-freeswitch/service';
 
 const VoipFreeSwitch = new VoipFreeSwitchService((id) => settings.get(id));
 

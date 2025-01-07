@@ -5,7 +5,7 @@ import { CommandBridge } from '@rocket.chat/apps-engine/server/bridges/CommandBr
 import type { IMessage, RequiredField, SlashCommand, SlashCommandCallbackParams } from '@rocket.chat/core-typings';
 import { Meteor } from 'meteor/meteor';
 
-import { Utilities } from '../../../../ee/lib/misc/Utilities';
+import { Utilities } from '../../../../foss/lib/misc/Utilities';
 import { parseParameters } from '../../../../lib/utils/parseParameters';
 import { slashCommands } from '../../../utils/server/slashCommand';
 

@@ -4,6 +4,6 @@
 		"noEmit": false,
 	},
 	"exclude": [
-		"./ee/server/services/**"
+		"./foss/server/services/**"
 	]
 }

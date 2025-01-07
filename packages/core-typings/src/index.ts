@@ -43,8 +43,8 @@ export * from './IUserSession';
 export * from './IUserStatus';
 export * from './IUser';
 
-export * from './ee/IAuditLog';
-export * from './ee/IWorkspaceCredentials';
+export * from './foss/IAuditLog';
+export * from './foss/IWorkspaceCredentials';
 
 export * from './import';
 export * from './IIncomingMessage';

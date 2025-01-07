@@ -5,7 +5,7 @@ import { startTracing } from '@rocket.chat/tracing';
 import polka from 'polka';
 
 import { StreamHub } from './StreamHub';
-import { registerServiceModels } from '../../../../apps/meteor/ee/server/lib/registerServiceModels';
+import { registerServiceModels } from '../../../../apps/meteor/foss/server/lib/registerServiceModels';
 import { DatabaseWatcher } from '../../../../apps/meteor/server/database/DatabaseWatcher';
 
 const PORT = process.env.PORT || 3035;

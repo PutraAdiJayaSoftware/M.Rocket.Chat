@@ -9,5 +9,5 @@
 			"mongodb": ["node_modules/mongodb"]
 		}
 	},
-	"exclude": [".meteor", "./packages", "./imports/client", "./ee/server/services", "public/", "private"]
+	"exclude": [".meteor", "./packages", "./imports/client", "./foss/server/services", "public/", "private"]
 }

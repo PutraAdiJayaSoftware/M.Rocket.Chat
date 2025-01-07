@@ -47,7 +47,7 @@
 		"ts-node": "^10.9.2",
 		"typescript": "~5.7.2"
 	},
-	"main": "./dist/ee/apps/queue-worker/src/service.js",
+	"main": "./dist/foss/apps/queue-worker/src/service.js",
 	"files": [
 		"/dist"
 	],

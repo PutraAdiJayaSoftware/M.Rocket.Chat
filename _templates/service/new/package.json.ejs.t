@@ -44,7 +44,7 @@ to: ee/apps/<%= name %>/package.json
 		"ts-node": "^10.9.1",
 		"typescript": "~5.1.6"
 	},
-	"main": "./dist/ee/apps/<%= name %>/src/service.js",
+	"main": "./dist/foss/apps/<%= name %>/src/service.js",
 	"files": [
 		"/dist"
 	],

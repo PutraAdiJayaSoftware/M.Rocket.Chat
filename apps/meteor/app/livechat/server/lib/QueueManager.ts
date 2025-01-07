@@ -23,7 +23,7 @@ import { RoutingManager } from './RoutingManager';
 import { isVerifiedChannelInSource } from './contacts/isVerifiedChannelInSource';
 import { getOnlineAgents } from './getOnlineAgents';
 import { getInquirySortMechanismSetting } from './settings';
-import { dispatchInquiryPosition } from '../../../../ee/app/livechat-enterprise/server/lib/Helper';
+import { dispatchInquiryPosition } from '../../../../foss/app/livechat-enterprise/server/lib/Helper';
 import { callbacks } from '../../../../lib/callbacks';
 import { sendNotification } from '../../../lib/server';
 import {

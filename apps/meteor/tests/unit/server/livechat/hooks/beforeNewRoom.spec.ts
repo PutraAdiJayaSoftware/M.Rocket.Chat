@@ -7,7 +7,7 @@ import { callbacks } from '../../../../../lib/callbacks';
 
 const findStub = sinon.stub();
 
-proxyquire.noCallThru().load('../../../../../ee/app/livechat-enterprise/server/hooks/beforeNewRoom.ts', {
+proxyquire.noCallThru().load('../../../../../foss/app/livechat-enterprise/server/hooks/beforeNewRoom.ts', {
 	'meteor/meteor': {
 		Meteor: {
 			Error,

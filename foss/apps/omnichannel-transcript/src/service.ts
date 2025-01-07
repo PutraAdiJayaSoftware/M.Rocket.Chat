@@ -4,7 +4,7 @@ import { broker } from '@rocket.chat/network-broker';
 import { startTracing } from '@rocket.chat/tracing';
 import polka from 'polka';
 
-import { registerServiceModels } from '../../../../apps/meteor/ee/server/lib/registerServiceModels';
+import { registerServiceModels } from '../../../../apps/meteor/foss/server/lib/registerServiceModels';
 
 const PORT = process.env.PORT || 3036;
 

@@ -1,6 +1,6 @@
 import type { IApiEndpointMetadata } from '@rocket.chat/apps-engine/definition/api';
 
-import { Utilities } from '../../../../ee/lib/misc/Utilities';
+import { Utilities } from '../../../../foss/lib/misc/Utilities';
 
 export const apiCurlGetter =
 	(absoluteUrl: (path: string) => string) =>

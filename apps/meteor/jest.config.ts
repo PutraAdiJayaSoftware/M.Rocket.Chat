@@ -11,7 +11,7 @@ export default {
 
 			testMatch: [
 				'<rootDir>/client/**/**.spec.[jt]s?(x)',
-				'<rootDir>/ee/client/**/**.spec.[jt]s?(x)',
+				'<rootDir>/foss/client/**/**.spec.[jt]s?(x)',
 				'<rootDir>/tests/unit/client/views/**/*.spec.{ts,tsx}',
 				'<rootDir>/tests/unit/client/providers/**/*.spec.{ts,tsx}',
 			],
@@ -34,9 +34,9 @@ export default {
 			testMatch: [
 				'<rootDir>/app/livechat/server/business-hour/**/*.spec.ts?(x)',
 				'<rootDir>/app/livechat/server/api/**/*.spec.ts',
-				'<rootDir>/ee/app/authorization/server/validateUserRoles.spec.ts',
-				'<rootDir>/ee/app/license/server/**/*.spec.ts',
-				'<rootDir>/ee/server/patches/**/*.spec.ts',
+				'<rootDir>/foss/app/authorization/server/validateUserRoles.spec.ts',
+				'<rootDir>/foss/app/license/server/**/*.spec.ts',
+				'<rootDir>/foss/server/patches/**/*.spec.ts',
 				'<rootDir>/app/cloud/server/functions/supportedVersionsToken/**.spec.ts',
 				'<rootDir>/app/utils/lib/**.spec.ts',
 			],

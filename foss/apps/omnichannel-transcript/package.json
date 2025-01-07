@@ -50,7 +50,7 @@
 		"ts-node": "^10.9.2",
 		"typescript": "~5.7.2"
 	},
-	"main": "./dist/ee/apps/omnichannel-transcript/src/service.js",
+	"main": "./dist/foss/apps/omnichannel-transcript/src/service.js",
 	"files": [
 		"/dist"
 	],

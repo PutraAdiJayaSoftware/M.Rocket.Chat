@@ -1,11 +1,11 @@
 import { expect, spy } from 'chai';
 import proxyquire from 'proxyquire';
 
-import type { AppServerOrchestrator } from '../../../../../../ee/server/apps/orchestrator';
+import type { AppServerOrchestrator } from '../../../../../../foss/server/apps/orchestrator';
 
 const { _disableAppsWithAddonsCallback } = proxyquire
 	.noCallThru()
-	.load('../../../../../../ee/server/lib/apps/disableAppsWithAddonsCallback', {
+	.load('../../../../../../foss/server/lib/apps/disableAppsWithAddonsCallback', {
 		'../../apps': {},
 		'../../../../server/lib/sendMessagesToAdmins': { sendMessagesToAdmins: () => undefined },
 		'../../../../server/lib/i18n': {

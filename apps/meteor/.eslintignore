@@ -5,12 +5,12 @@
 /public/
 /private/moment-locales/
 /imports/
-/ee/server/services/dist/
+/foss/server/services/dist/
 !/.mocharc.js
 !/.mocharc.*.js
 !/.scripts/
 !/.storybook/
 !/client/.eslintrc.js
-!/ee/client/.eslintrc.js
+!/foss/client/.eslintrc.js
 /storybook-static/
 /packages/

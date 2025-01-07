@@ -46,7 +46,7 @@
 		"ts-node": "^10.9.2",
 		"typescript": "~5.7.2"
 	},
-	"main": "./dist/ee/apps/stream-hub-service/src/service.js",
+	"main": "./dist/foss/apps/stream-hub-service/src/service.js",
 	"files": [
 		"/dist"
 	]

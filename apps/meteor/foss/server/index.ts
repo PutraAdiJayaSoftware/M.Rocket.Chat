@@ -1,6 +1,12 @@
+import { Meteor } from 'meteor/meteor';
+
 import './models/startup';
-import '../app/license/server';
-import '/foss/app/api/server/index';
+// import '../app/license/server';
+// import '/foss/app/api/server/index';
+
+Meteor.startup(async () => {
+	await import("../app/api/server/canned-responses");
+});
 import '../app/authorization/server/index';
 import '../app/canned-responses/server/index';
 import '../app/livechat-enterprise/server/index';

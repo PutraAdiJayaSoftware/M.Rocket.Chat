@@ -1,6 +1,5 @@
 import { api } from '@rocket.chat/core-services';
 import type { IUser, IRole, AtLeast } from '@rocket.chat/core-typings';
-import { License } from '@rocket.chat/license';
 import { Users } from '@rocket.chat/models';
 
 import { settings } from '../../../app/settings/server';
@@ -69,11 +68,6 @@ export async function syncUserRoles(
 
 	if (!rolesToAdd.length && !rolesToRemove.length) {
 		return;
-	}
-
-	const wasGuest = existingRoles.length === 1 && existingRoles[0] === 'guest';
-	if (wasGuest && (await License.shouldPreventAction('activeUsers'))) {
-		throw new Error('error-license-user-limit-reached');
 	}
 
 	if (rolesToAdd.length && (await addUserRolesAsync(uid, rolesToAdd, scope))) {

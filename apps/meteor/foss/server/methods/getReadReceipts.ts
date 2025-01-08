@@ -1,6 +1,5 @@
 import type { ReadReceipt as ReadReceiptType, IMessage } from '@rocket.chat/core-typings';
 import type { ServerMethods } from '@rocket.chat/ddp-client';
-import { License } from '@rocket.chat/license';
 import { Messages } from '@rocket.chat/models';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
@@ -17,10 +16,6 @@ declare module '@rocket.chat/ddp-client' {
 
 Meteor.methods<ServerMethods>({
 	async getReadReceipts({ messageId }) {
-		if (!License.hasModule('message-read-receipt')) {
-			throw new Meteor.Error('error-action-not-allowed', 'This is an enterprise feature', { method: 'getReadReceipts' });
-		}
-
 		if (!messageId) {
 			throw new Meteor.Error('error-invalid-message', "The required 'messageId' param is missing.", { method: 'getReadReceipts' });
 		}

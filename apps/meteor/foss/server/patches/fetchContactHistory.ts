@@ -1,4 +1,3 @@
-import { License } from '@rocket.chat/license';
 import { LivechatRooms } from '@rocket.chat/models';
 
 import { fetchContactHistory } from '../../../app/livechat/server/lib/contacts/getContactHistory';
@@ -17,5 +16,5 @@ fetchContactHistory.patch(
 			options,
 		});
 	},
-	() => License.hasModule('contact-id-verification'),
+	() => true,
 );

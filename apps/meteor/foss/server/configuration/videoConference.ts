@@ -1,7 +1,6 @@
 import { VideoConf } from '@rocket.chat/core-services';
 import type { IRoom, IUser, VideoConference } from '@rocket.chat/core-typings';
 import { VideoConferenceStatus } from '@rocket.chat/core-typings';
-import { License } from '@rocket.chat/license';
 import { Rooms, Subscriptions } from '@rocket.chat/models';
 import { Meteor } from 'meteor/meteor';
 
@@ -10,8 +9,8 @@ import { videoConfTypes } from '../../../server/lib/videoConfTypes';
 import { addSettings } from '../settings/video-conference';
 
 Meteor.startup(async () => {
-	await License.onLicense('videoconference-enterprise', async () => {
-		await addSettings();
+	
+	/* await addSettings();
 
 		videoConfTypes.registerVideoConferenceType(
 			{ type: 'direct', status: VideoConferenceStatus.CALLING },
@@ -48,5 +47,5 @@ Meteor.startup(async () => {
 		callbacks.add('onJoinVideoConference', async (callId: VideoConference['_id'], userId?: IUser['_id']) =>
 			VideoConf.addUser(callId, userId),
 		);
-	});
+		*/
 });

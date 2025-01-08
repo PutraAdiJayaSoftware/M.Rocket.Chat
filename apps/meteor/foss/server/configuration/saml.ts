@@ -1,4 +1,3 @@
-import { License } from '@rocket.chat/license';
 import { Roles, Users } from '@rocket.chat/models';
 
 import type { ISAMLUser } from '../../../app/meteor-accounts-saml/server/definition/ISAMLUser';
@@ -7,8 +6,10 @@ import { settings } from '../../../app/settings/server';
 import { ensureArray } from '../../../lib/utils/arrayUtils';
 import { addSettings } from '../settings/saml';
 
-await License.onLicense('saml-enterprise', () => {
-	SAMLUtils.events.on('mapUser', async ({ profile, userObject }: { profile: Record<string, any>; userObject: ISAMLUser }) => {
+Meteor.startup(async () => {
+	 
+
+	/* SAMLUtils.events.on('mapUser', async ({ profile, userObject }: { profile: Record<string, any>; userObject: ISAMLUser }) => {
 		const roleAttributeName = settings.get('SAML_Custom_Default_role_attribute_name') as string;
 		const roleAttributeSync = settings.get('SAML_Custom_Default_role_attribute_sync');
 
@@ -63,8 +64,9 @@ await License.onLicense('saml-enterprise', () => {
 		}
 
 		await Users.updateCustomFieldsById(updatedUser.userId, customFieldsList);
-	});
+	}); */
+	 
 });
 
 // For setting creation we add the listener first because the event is emmited during startup
-SAMLUtils.events.on('addSettings', (name: string): void | Promise<void> => License.onLicense('saml-enterprise', () => addSettings(name)));
+// SAMLUtils.events.on('addSettings', (name: string): void | Promise<void> => addSettings(name));

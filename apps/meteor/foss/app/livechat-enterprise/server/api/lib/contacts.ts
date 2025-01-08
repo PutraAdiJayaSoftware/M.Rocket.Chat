@@ -1,5 +1,4 @@
 import type { IUser, ILivechatContactVisitorAssociation } from '@rocket.chat/core-typings';
-import { License } from '@rocket.chat/license';
 import { LivechatContacts, LivechatRooms, LivechatVisitors } from '@rocket.chat/models';
 
 import { Livechat } from '../../../../../../app/livechat/server/lib/LivechatTyped';
@@ -14,9 +13,7 @@ export async function changeContactBlockStatus({ block, visitor }: { visitor: IL
 }
 
 export function ensureSingleContactLicense() {
-	if (!License.hasModule('contact-id-verification')) {
-		throw new Error('error-action-not-allowed');
-	}
+	throw new Error('error-action-not-allowed');
 }
 
 export async function closeBlockedRoom(association: ILivechatContactVisitorAssociation, user: IUser) {

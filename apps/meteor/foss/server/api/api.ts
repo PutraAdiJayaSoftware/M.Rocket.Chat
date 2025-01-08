@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { License } from '@rocket.chat/license';
 
 import { API } from '../../../app/api/server/api';
 import type { NonEnterpriseTwoFactorOptions, Options } from '../../../app/api/server/definition';
@@ -12,7 +11,7 @@ const isNonEnterpriseTwoFactorOptions = (options?: Options): options is NonEnter
 	!!options && 'forceTwoFactorAuthenticationForNonEnterprise' in options && Boolean(options.forceTwoFactorAuthenticationForNonEnterprise);
 
 API.v1.processTwoFactor = use(API.v1.processTwoFactor, ([params, ...context], next) => {
-	if (isNonEnterpriseTwoFactorOptions(params.options) && !License.hasValidLicense()) {
+	if (isNonEnterpriseTwoFactorOptions(params.options)  ) {
 		const options: NonEnterpriseTwoFactorOptions = {
 			...params.options,
 			twoFactorOptions: {

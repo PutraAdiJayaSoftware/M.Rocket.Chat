@@ -1,4 +1,4 @@
-import { Meteor } from 'meteor/meteor';
+
 
 import './methods/addMonitor';
 import './methods/getUnitsFromUserRoles';
@@ -25,19 +25,4 @@ import './hooks/onTransferFailure';
 import './lib/routing/LoadBalancing';
 import './lib/routing/LoadRotation';
 import './lib/AutoCloseOnHoldScheduler';
-import './business-hour';
-import { createDefaultPriorities } from './priorities';
-
-// await License.onLicense('livechat-enterprise', async () => {
-// 	require('./api');
-// 	require('./hooks');
-// 	await import('./startup');
-// 	const { createPermissions } = await import('./permissions');
-// 	const { createSettings } = await import('./settings');
-
-// 	Meteor.startup(() => {
-// 		void createSettings();
-// 		void createPermissions();
-// 		void createDefaultPriorities();
-// 	});
-// });
+import './business-hour';  

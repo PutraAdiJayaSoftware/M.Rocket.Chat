@@ -1,5 +1,4 @@
 import type { SettingValue } from '@rocket.chat/core-typings';
-import { License } from '@rocket.chat/license';
 import { Settings } from '@rocket.chat/models';
 import type { SignedSupportedVersions, SupportedVersions } from '@rocket.chat/server-cloud-communication';
 import type { Response } from '@rocket.chat/server-fetch';
@@ -137,18 +136,18 @@ const getSupportedVersionsToken = async () => {
 	 * return the token
 	 */
 
-	const [versionsFromLicense, response] = await Promise.all([License.getLicense(), getSupportedVersionsFromCloud()]);
+	const [ response] = await Promise.all([  getSupportedVersionsFromCloud()]);
 
 	const supportedVersions = await supportedVersionsChooseLatest(
 		supportedVersionsFromBuild,
-		versionsFromLicense?.supportedVersions,
+		undefined,
 		(response.success && response.result) || undefined,
 	);
 
 	SystemLogger.debug({
 		msg: 'Supported versions',
 		supportedVersionsFromBuild: supportedVersionsFromBuild.timestamp,
-		versionsFromLicense: versionsFromLicense?.supportedVersions?.timestamp,
+		versionsFromLicense: undefined,
 		response: response.success && response.result?.timestamp,
 	});
 
@@ -158,12 +157,12 @@ const getSupportedVersionsToken = async () => {
 				msg: 'Using supported versions from build',
 			});
 			break;
-		case versionsFromLicense?.supportedVersions:
+		case undefined:
 			SystemLogger.info({
 				msg: 'Using supported versions from license',
 			});
 			break;
-		case response.success && response.result:
+		default:
 			SystemLogger.info({
 				msg: 'Using supported versions from cloud',
 			});

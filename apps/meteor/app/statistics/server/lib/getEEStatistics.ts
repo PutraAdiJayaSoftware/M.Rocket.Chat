@@ -2,7 +2,6 @@ import { log } from 'console';
 
 import { Analytics } from '@rocket.chat/core-services';
 import type { IStats } from '@rocket.chat/core-typings';
-import { License } from '@rocket.chat/license';
 import { CannedResponse, OmnichannelServiceLevelAgreements, LivechatRooms, LivechatTag, LivechatUnit, Users } from '@rocket.chat/models';
 
 type ENTERPRISE_STATISTICS = IStats['enterprise'];
@@ -29,9 +28,9 @@ export async function getStatistics(): Promise<ENTERPRISE_STATISTICS> {
 }
 
 async function getEEStatistics(): Promise<EEOnlyStats | undefined> {
-	if (!License.hasModule('livechat-enterprise')) {
-		return;
-	}
+	 
+	return;
+	 
 
 	const statsPms: Array<Promise<any>> = [];
 

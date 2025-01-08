@@ -2,7 +2,6 @@ import { AppStatus, AppStatusUtils } from '@rocket.chat/apps-engine/definition/A
 import type { IAppInfo } from '@rocket.chat/apps-engine/definition/metadata';
 import type { AppManager } from '@rocket.chat/apps-engine/server/AppManager';
 import type { IUser, IMessage } from '@rocket.chat/core-typings';
-import { License } from '@rocket.chat/license';
 import { Settings, Users } from '@rocket.chat/models';
 import { serverFetch as fetch } from '@rocket.chat/server-fetch';
 import { Meteor } from 'meteor/meteor';
@@ -749,7 +748,7 @@ export class AppsRestApi {
 						return API.v1.internalError('private_app_install_disabled');
 					}
 
-					const isCommunityWorkspace = !License.hasValidLicense();
+					const isCommunityWorkspace = true;
 
 					// Note: exempt apps happen when a private app was uploaded to a community workspace before
 					//       the private app restriction was enforced. We still allow the users to use their

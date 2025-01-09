@@ -12238,13 +12238,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/emojione@npm:^2.2.9":
-  version: 2.2.9
-  resolution: "@types/emojione@npm:2.2.9"
-  checksum: 10/ec16f96f8d9886dc3f82bd8aa3ee34f320069771d9a82d01c3c20da9c0c13c7b07347eff2912b914caf3416e3cedea4b963ecc3331c23d743270c975a91ff4d4
-  languageName: node
-  linkType: hard
-
 "@types/eslint-scope@npm:^3.7.7":
   version: 3.7.7
   resolution: "@types/eslint-scope@npm:3.7.7"
@@ -16419,7 +16412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer@npm:^6.0.3, buffer@npm:~6.0.3":
+"buffer@npm:^6.0.3":
   version: 6.0.3
   resolution: "buffer@npm:6.0.3"
   dependencies:
@@ -19940,13 +19933,6 @@ __metadata:
   version: 0.13.1
   resolution: "emittery@npm:0.13.1"
   checksum: 10/fbe214171d878b924eedf1757badf58a5dce071cd1fa7f620fa841a0901a80d6da47ff05929d53163105e621ce11a71b9d8acb1148ffe1745e045145f6e69521
-  languageName: node
-  linkType: hard
-
-"emoji-assets@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "emoji-assets@npm:7.0.1"
-  checksum: 10/5fd1eae9f88f8de6eb6790c90a6c6d9f84f61b10a6c0e35cef197684435da9169f598e12c91716a69154e52c7cf5614a64ccdafd66082e4e4586df0ec7a67e0f
   languageName: node
   linkType: hard
 
@@ -32881,7 +32867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:~18.3.1":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -33135,7 +33121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:~18.3.1":
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:

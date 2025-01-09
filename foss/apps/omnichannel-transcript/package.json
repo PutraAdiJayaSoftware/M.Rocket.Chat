@@ -23,7 +23,6 @@
 		"@rocket.chat/model-typings": "workspace:^",
 		"@rocket.chat/models": "workspace:^",
 		"@rocket.chat/network-broker": "workspace:^",
-		"@rocket.chat/omnichannel-services": "workspace:^",
 		"@rocket.chat/tools": "workspace:^",
 		"@rocket.chat/tracing": "workspace:^",
 		"@types/node": "~20.17.8",

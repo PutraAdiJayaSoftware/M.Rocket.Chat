@@ -14,7 +14,6 @@
     "@rocket.chat/stream-hub-service": "0.4.9",
     "@rocket.chat/license": "1.0.0",
     "@rocket.chat/network-broker": "0.1.1",
-    "@rocket.chat/omnichannel-services": "0.3.6",
     "@rocket.chat/presence": "0.2.9",
     "@rocket.chat/account-utils": "0.0.2",
     "@rocket.chat/agenda": "0.1.0",

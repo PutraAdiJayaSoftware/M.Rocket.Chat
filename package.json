@@ -26,8 +26,6 @@
 	"workspaces": [
 		"apps/*",
 		"packages/*",
-		"foss/apps/*",
-		"foss/packages/*",
 		"apps/meteor/foss/server/services"
 	],
 	"repository": {

@@ -8940,25 +8940,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/license@workspace:foss/packages/license":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/license@workspace:foss/packages/license"
-  dependencies:
-    "@rocket.chat/core-typings": "workspace:^"
-    "@rocket.chat/jest-presets": "workspace:~"
-    "@rocket.chat/jwt": "workspace:^"
-    "@rocket.chat/logger": "workspace:^"
-    "@types/bcrypt": "npm:^5.0.2"
-    "@types/jest": "npm:~29.5.14"
-    "@types/ws": "npm:^8.5.13"
-    bcrypt: "npm:^5.1.1"
-    eslint: "npm:~8.45.0"
-    jest: "npm:~29.7.0"
-    jest-websocket-mock: "npm:~2.5.0"
-    typescript: "npm:~5.7.2"
-  languageName: unknown
-  linkType: soft
-
 "@rocket.chat/livechat@workspace:^, @rocket.chat/livechat@workspace:packages/livechat":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/livechat@workspace:packages/livechat"

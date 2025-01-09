@@ -1,8 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
 import './models/startup';
-// import '../app/license/server';
-// import '/foss/app/api/server/index';
 
 Meteor.startup(async () => {
 	await import("../app/api/server/canned-responses");

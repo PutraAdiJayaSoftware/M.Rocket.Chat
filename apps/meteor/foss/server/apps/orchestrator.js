@@ -22,7 +22,6 @@ import {
 } from '../../../app/apps/server/converters';
 import { AppThreadsConverter } from '../../../app/apps/server/converters/threads';
 import { settings } from '../../../app/settings/server';
-import { canEnableApp } from '../../app/license/server/canEnableApp';
 
 function isTesting() {
 	return process.env.TEST_MODE === 'true';
@@ -178,9 +177,7 @@ export class AppServerOrchestrator {
 
 		// This needs to happen sequentially to keep track of app limits
 		for await (const app of apps) {
-			try {
-				await canEnableApp(app.getStorageItem());
-
+			try { 
 				await this.getManager().loadOne(app.getID(), true);
 			} catch (error) {
 				this._rocketchatLogger.warn(`App "${app.getInfo().name}" could not be enabled: `, error.message);

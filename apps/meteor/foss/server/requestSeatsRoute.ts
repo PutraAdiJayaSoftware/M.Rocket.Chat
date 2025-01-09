@@ -4,7 +4,6 @@ import { WebApp } from 'meteor/webapp';
 
 import { authenticationMiddleware, hasPermissionMiddleware } from '../../app/api/server/middlewares/authentication';
 import { getCheckoutUrl, fallback } from '../../app/cloud/server/functions/getCheckoutUrl';
-import { getSeatsRequestLink } from '../app/license/server/getSeatsRequestLink';
 
 const apiServer = express();
 
@@ -25,7 +24,7 @@ router.use(
 );
 
 router.get('/', async (req: Request, res) => {
-	const url = await getSeatsRequestLink(req.unauthorized ? fallback : (await getCheckoutUrl()).url, req.query as Record<string, string>);
+	const url = (await getCheckoutUrl()).url;
 
 	await Analytics.saveSeatRequest();
 

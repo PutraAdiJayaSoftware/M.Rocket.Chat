@@ -35,7 +35,6 @@ export default {
 				'<rootDir>/app/livechat/server/business-hour/**/*.spec.ts?(x)',
 				'<rootDir>/app/livechat/server/api/**/*.spec.ts',
 				'<rootDir>/foss/app/authorization/server/validateUserRoles.spec.ts',
-				'<rootDir>/foss/app/license/server/**/*.spec.ts',
 				'<rootDir>/foss/server/patches/**/*.spec.ts',
 				'<rootDir>/app/cloud/server/functions/supportedVersionsToken/**.spec.ts',
 				'<rootDir>/app/utils/lib/**.spec.ts',

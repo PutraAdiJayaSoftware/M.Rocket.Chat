@@ -21,7 +21,6 @@ import { deleteMessageValidatingPermission } from '../../../lib/server/functions
 import { processWebhookMessage } from '../../../lib/server/functions/processWebhookMessage';
 import { executeSendMessage } from '../../../lib/server/methods/sendMessage';
 import { executeUpdateMessage } from '../../../lib/server/methods/updateMessage';
-import { applyAirGappedRestrictionsValidation } from '../../../license/server/airGappedRestrictionsWrapper';
 import { pinMessage } from '../../../message-pin/server/pinMessage';
 import { OEmbed } from '../../../oembed/server/server';
 import { executeSetReaction } from '../../../reactions/server/setReaction';
@@ -189,7 +188,7 @@ API.v1.addRoute(
 				}
 			}
 
-			const messageReturn = (await applyAirGappedRestrictionsValidation(() => processWebhookMessage(this.bodyParams, this.user)))[0];
+			const messageReturn = (await processWebhookMessage(this.bodyParams, this.user))[0];
 
 			if (!messageReturn) {
 				return API.v1.failure('unknown-error');
@@ -247,9 +246,7 @@ API.v1.addRoute(
 				throw new Error("Cannot send system messages using 'chat.sendMessage'");
 			}
 
-			const sent = await applyAirGappedRestrictionsValidation(() =>
-				executeSendMessage(this.userId, this.bodyParams.message as Pick<IMessage, 'rid'>, this.bodyParams.previewUrls),
-			);
+			const sent = await executeSendMessage(this.userId, this.bodyParams.message as Pick<IMessage, 'rid'>, this.bodyParams.previewUrls);
 			const [message] = await normalizeMessagesForUser([sent], this.userId);
 
 			return API.v1.success({
@@ -352,17 +349,15 @@ API.v1.addRoute(
 			const msgFromBody = this.bodyParams.text;
 
 			// Permission checks are already done in the updateMessage method, so no need to duplicate them
-			await applyAirGappedRestrictionsValidation(() =>
-				executeUpdateMessage(
-					this.userId,
-					{
-						_id: msg._id,
-						msg: msgFromBody,
-						rid: msg.rid,
-						customFields: this.bodyParams.customFields as Record<string, any> | undefined,
-					},
-					this.bodyParams.previewUrls,
-				),
+			await executeUpdateMessage(
+				this.userId,
+				{
+					_id: msg._id,
+					msg: msgFromBody,
+					rid: msg.rid,
+					customFields: this.bodyParams.customFields as Record<string, any> | undefined,
+				},
+				this.bodyParams.previewUrls,
 			);
 
 			const updatedMessage = await Messages.findOneById(msg._id);

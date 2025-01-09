@@ -16,7 +16,6 @@ import { settings } from '../../../../app/settings/server';
 import { Info } from '../../../../app/utils/rocketchat.info';
 import { i18n } from '../../../../server/lib/i18n';
 import { sendMessagesToAdmins } from '../../../../server/lib/sendMessagesToAdmins';
-import { canEnableApp } from '../../../app/license/server/canEnableApp';
 import { formatAppInstanceForRest } from '../../../lib/misc/formatAppInstanceForRest';
 import { notifyAppInstall } from '../marketplace/appInstall';
 import type { AppServerOrchestrator } from '../orchestrator';
@@ -415,9 +414,7 @@ export class AppsRestApi {
 
 					void notifyAppInstall(orchestrator.getMarketplaceUrl() as string, 'install', info);
 
-					try {
-						await canEnableApp(aff.getApp().getStorageItem());
-
+					try { 
 						const success = await manager.enable(info.id);
 						info.status = success ? AppStatus.AUTO_ENABLED : info.status;
 					} catch (error) {
@@ -1170,8 +1167,7 @@ export class AppsRestApi {
 					}
 
 					if (AppStatusUtils.isEnabled(status)) {
-						try {
-							await canEnableApp(prl.getStorageItem());
+						try { 
 						} catch (error: unknown) {
 							return API.v1.failure((error as Error).message);
 						}

@@ -6,7 +6,7 @@ import { QueueManager } from '../../../app/livechat/server/lib/QueueManager';
 import { mergeContacts } from '../../../app/livechat/server/lib/contacts/mergeContacts';
 import { verifyContactChannel } from '../../../app/livechat/server/lib/contacts/verifyContactChannel';
 import { client, shouldRetryTransaction } from '../../../server/database/utils';
-import { contactLogger as logger } from '../../app/livechat-enterprise/server/lib/logger';
+import { contactLogger as logger } from '../../app/livechat-foss/server/lib/logger';
 
 type VerifyContactChannelParams = {
 	contactId: string;

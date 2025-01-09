@@ -5,7 +5,7 @@ import type { ClientSession } from 'mongodb';
 import { isSameChannel } from '../../../app/livechat/lib/isSameChannel';
 import { ContactMerger } from '../../../app/livechat/server/lib/contacts/ContactMerger';
 import { mergeContacts } from '../../../app/livechat/server/lib/contacts/mergeContacts';
-import { contactLogger as logger } from '../../app/livechat-enterprise/server/lib/logger';
+import { contactLogger as logger } from '../../app/livechat-foss/server/lib/logger';
 
 export const runMergeContacts = async (
 	_next: any,

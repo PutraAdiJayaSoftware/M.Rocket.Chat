@@ -4,7 +4,7 @@ import { LivechatUnitMonitors, LivechatDepartment, LivechatRooms } from '@rocket
 import type { FindOptions, Filter, FindCursor, Db, FilterOperators, UpdateResult, DeleteResult, Document, UpdateFilter } from 'mongodb';
 
 import { BaseRaw } from '../../../../server/models/raw/BaseRaw';
-import { getUnitsFromUser } from '../../../app/livechat-enterprise/server/lib/units';
+import { getUnitsFromUser } from '../../../app/livechat-foss/server/lib/units';
 
 const addQueryRestrictions = async (originalQuery: Filter<IOmnichannelBusinessUnit> = {}) => {
 	const query: FilterOperators<IOmnichannelBusinessUnit> = { ...originalQuery, type: 'u' };

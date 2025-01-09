@@ -3,7 +3,7 @@ import { api } from '@rocket.chat/core-services';
 import { settings } from '../../../app/settings/server/cached';
 import { isRunningMs } from '../../../server/lib/isRunningMs';
 import { FederationService } from '../../../server/services/federation/service';
-import { OmnichannelEE } from '../../app/livechat-enterprise/server/services/omnichannel.internalService';
+import { OmnichannelEE } from '../../app/livechat-foss/server/services/omnichannel.internalService';
 import { EnterpriseSettings } from '../../app/settings/server/settings.internalService';
 import { InstanceService } from '../local-services/instance/service';
 import { LDAPEEService } from '../local-services/ldap/service';

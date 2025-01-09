@@ -21,7 +21,6 @@
 		"@rocket.chat/logger": "workspace:^",
 		"@rocket.chat/model-typings": "workspace:^",
 		"@rocket.chat/models": "workspace:^",
-		"@rocket.chat/network-broker": "workspace:^",
 		"@rocket.chat/tracing": "workspace:^",
 		"@types/node": "~20.17.8",
 		"ejson": "^2.2.3",

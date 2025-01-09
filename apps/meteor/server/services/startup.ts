@@ -64,11 +64,8 @@ export const registerServices = async (): Promise<void> => {
 
 	// if the process is running in micro services mode we don't need to register services that will run separately
 	if (!isRunningMs()) {
-		const { Presence } = await import('@rocket.chat/presence');
 
 		const { Authorization } = await import('./authorization/service');
-
-		api.registerService(new Presence());
 		api.registerService(new Authorization());
 
  

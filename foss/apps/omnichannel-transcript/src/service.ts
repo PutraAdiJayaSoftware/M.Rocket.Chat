@@ -1,6 +1,5 @@
 import { api, getConnection, getTrashCollection } from '@rocket.chat/core-services';
 import { Logger } from '@rocket.chat/logger';
-import { broker } from '@rocket.chat/network-broker';
 import { startTracing } from '@rocket.chat/tracing';
 import polka from 'polka';
 
@@ -15,7 +14,6 @@ const PORT = process.env.PORT || 3036;
 
 	registerServiceModels(db, await getTrashCollection());
 
-	api.setBroker(broker);
 
 	// need to import service after models are registered
  

@@ -1,6 +1,5 @@
 import { api, getConnection, getTrashCollection } from '@rocket.chat/core-services';
 import { Logger } from '@rocket.chat/logger';
-import { broker } from '@rocket.chat/network-broker';
 import { startTracing } from '@rocket.chat/tracing';
 import polka from 'polka';
 
@@ -17,7 +16,6 @@ const PORT = process.env.PORT || 3035;
 
 	registerServiceModels(db, await getTrashCollection());
 
-	api.setBroker(broker);
 
 	// TODO having to import Logger to pass as a param is a temporary solution. logger should come from the service (either from broker or api)
 	const watcher = new DatabaseWatcher({ db, logger: Logger });

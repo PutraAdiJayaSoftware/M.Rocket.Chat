@@ -20,8 +20,6 @@
 		"@rocket.chat/emitter": "~0.31.25",
 		"@rocket.chat/model-typings": "workspace:^",
 		"@rocket.chat/models": "workspace:^",
-		"@rocket.chat/network-broker": "workspace:^",
-		"@rocket.chat/presence": "workspace:^",
 		"@rocket.chat/string-helpers": "~0.31.25",
 		"@rocket.chat/tracing": "workspace:^",
 		"@types/node": "~20.17.8",

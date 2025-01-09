@@ -8,8 +8,7 @@ Meteor.startup(async () => {
 import '../app/authorization/server/index';
 import '../app/canned-responses/server/index';
 import '../app/livechat-foss/server/index';
-import '../app/message-read-receipt/server/index';
-import '../app/voip-enterprise/server/index';
+import '../app/message-read-receipt/server/index'; 
 import '../app/settings/server/index';
 import './api';
 import './requestSeatsRoute';

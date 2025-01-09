@@ -272,7 +272,6 @@
 		"@rocket.chat/onboarding-ui": "~0.34.0",
 		"@rocket.chat/password-policies": "workspace:^",
 		"@rocket.chat/patch-injection": "workspace:^",
-		"@rocket.chat/pdf-worker": "workspace:^",
 		"@rocket.chat/poplib": "workspace:^",
 		"@rocket.chat/presence": "workspace:^",
 		"@rocket.chat/random": "workspace:^",

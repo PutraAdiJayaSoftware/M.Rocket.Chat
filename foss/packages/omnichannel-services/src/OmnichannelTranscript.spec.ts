@@ -4,13 +4,7 @@ import { Logger } from '@rocket.chat/logger';
 import { OmnichannelTranscript } from './OmnichannelTranscript';
 import { invalidSystemMessage, messages, validSystemMessage } from './OmnichannelTranscript.fixtures';
 
-jest.mock('@rocket.chat/pdf-worker', () => ({
-	PdfWorker: jest.fn().mockImplementation(() => ({
-		renderToStream: jest.fn().mockResolvedValue(Buffer.from('')),
-		isMimeTypeValid: jest.fn(() => true),
-	})),
-}));
-
+ 
 jest.mock('@rocket.chat/core-services', () => ({
 	ServiceClass: class {},
 	Upload: {

@@ -1,4 +1,3 @@
-import type { Readable } from 'stream';
 
 import {
 	ServiceClass,
@@ -25,8 +24,7 @@ import type { Logger } from '@rocket.chat/logger';
 import { parse } from '@rocket.chat/message-parser';
 import type { Root } from '@rocket.chat/message-parser';
 import { LivechatRooms, Messages, Uploads, Users, LivechatVisitors } from '@rocket.chat/models';
-import { PdfWorker } from '@rocket.chat/pdf-worker';
-import { guessTimezone, guessTimezoneFromOffset, streamToBuffer } from '@rocket.chat/tools';
+import { guessTimezone, guessTimezoneFromOffset } from '@rocket.chat/tools';
 
 import { getAllSystemMessagesKeys, getSystemMessage } from './livechatSystemMessages';
 
@@ -84,7 +82,7 @@ const customSprintfInterpolation = (template: string, values: Record<string, str
 export class OmnichannelTranscript extends ServiceClass implements IOmnichannelTranscriptService {
 	protected name = 'omnichannel-transcript';
 
-	private worker: PdfWorker;
+	// private worker: PdfWorker;
 
 	private log: Logger;
 
@@ -98,7 +96,7 @@ export class OmnichannelTranscript extends ServiceClass implements IOmnichannelT
 
 	constructor(loggerClass: typeof Logger) {
 		super();
-		this.worker = new PdfWorker('chat-transcript');
+		// this.worker = new PdfWorker('chat-transcript');
 		// eslint-disable-next-line new-cap
 		this.log = new loggerClass('OmnichannelTranscript');
 	}
@@ -277,12 +275,12 @@ export class OmnichannelTranscript extends ServiceClass implements IOmnichannelT
 					continue;
 				}
 
-				if (!this.worker.isMimeTypeValid(attachment.image_type)) {
-					this.log.error(`Invalid mime type ${attachment.image_type} for file ${attachment.title} in room ${message.rid}!`);
-					// ignore invalid mime types
-					files.push({ name: attachment.title, buffer: null });
-					continue;
-				}
+				// if (!this.worker.isMimeTypeValid(attachment.image_type)) {
+				// 	this.log.error(`Invalid mime type ${attachment.image_type} for file ${attachment.title} in room ${message.rid}!`);
+				// 	// ignore invalid mime types
+				// 	files.push({ name: attachment.title, buffer: null });
+				// 	continue;
+				// }
 				let file = message.files?.map((v) => ({ _id: v._id, name: v.name })).find((file) => file.name === attachment.title);
 				if (!file) {
 					this.log.warn(`File ${attachment.title} not found in room ${message.rid}!`);
@@ -458,14 +456,14 @@ export class OmnichannelTranscript extends ServiceClass implements IOmnichannelT
 	async doRender({ data, details }: { data: WorkerData; details: WorkDetailsWithSource }): Promise<void> {
 		const transcriptText = await translationService.translateToServerLanguage('Transcript');
 
-		const stream = await this.worker.renderToStream({ data });
-		const outBuff = await streamToBuffer(stream as Readable);
+		// const stream = await this.worker.renderToStream({ data });
+		// const outBuff = await streamToBuffer(stream as Readable);
 
 		try {
 			const { rid } = await roomService.createDirectMessage({ to: details.userId, from: 'rocket.cat' });
 			const [rocketCatFile, transcriptFile] = await this.uploadFiles({
 				details,
-				buffer: outBuff,
+				buffer: Buffer.from(''),
 				roomIds: [rid, details.rid],
 				data,
 				transcriptText,

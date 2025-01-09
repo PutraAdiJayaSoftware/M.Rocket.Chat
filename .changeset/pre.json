@@ -17,7 +17,6 @@
     "@rocket.chat/omnichannel-services": "0.3.6",
     "@rocket.chat/pdf-worker": "0.2.6",
     "@rocket.chat/presence": "0.2.9",
-    "@rocket.chat/ui-theming": "0.4.0",
     "@rocket.chat/account-utils": "0.0.2",
     "@rocket.chat/agenda": "0.1.0",
     "@rocket.chat/api-client": "0.2.9",

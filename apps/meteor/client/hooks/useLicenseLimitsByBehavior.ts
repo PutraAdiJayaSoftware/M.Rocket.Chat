@@ -1,5 +1,4 @@
 import type { LicenseBehavior, LicenseLimitKind } from '@rocket.chat/core-typings';
-import { validateWarnLimit } from '@rocket.chat/license/src/validation/validateLimit';
 
 import { useLicense } from './useLicense';
 
@@ -24,7 +23,7 @@ export const useLicenseLimitsByBehavior = () => {
 	const rules = keyLimits
 		.map((key) => {
 			const rule = license.limits[key]
-				?.filter((limit) => validateWarnLimit(limit.max, limits[key].value ?? 0, limit.behavior))
+				?.filter((limit) => limit.max)
 				.reduce<{
 					max: number;
 					behavior: LicenseBehavior;

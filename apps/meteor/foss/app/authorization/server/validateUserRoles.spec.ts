@@ -1,8 +1,8 @@
 import { MeteorError } from '@rocket.chat/core-services';
-import { License, MockedLicenseBuilder } from '@rocket.chat/license';
+// import { License, MockedLicenseBuilder } from '@rocket.chat/license';
 
 import { validateUserRoles } from './validateUserRoles';
-
+/* 
 beforeEach(async () => {
 	const license = new MockedLicenseBuilder();
 	await License.setWorkspaceUrl('http://localhost:3000');
@@ -260,3 +260,4 @@ describe('Operating under activeUsers Limits', () => {
 		});
 	});
 });
+ */

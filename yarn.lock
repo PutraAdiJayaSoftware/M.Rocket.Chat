@@ -8940,7 +8940,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/license@workspace:^, @rocket.chat/license@workspace:foss/packages/license":
+"@rocket.chat/license@workspace:foss/packages/license":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/license@workspace:foss/packages/license"
   dependencies:
@@ -9185,7 +9185,6 @@ __metadata:
     "@rocket.chat/jest-presets": "workspace:~"
     "@rocket.chat/jwt": "workspace:^"
     "@rocket.chat/layout": "npm:~0.31.27"
-    "@rocket.chat/license": "workspace:^"
     "@rocket.chat/livechat": "workspace:^"
     "@rocket.chat/log-format": "workspace:^"
     "@rocket.chat/logger": "workspace:^"
@@ -9944,7 +9943,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/server-cloud-communication@workspace:packages/server-cloud-communication"
   dependencies:
-    "@rocket.chat/license": "workspace:^"
     eslint: "npm:~8.45.0"
     typescript: "npm:~5.7.2"
   languageName: unknown

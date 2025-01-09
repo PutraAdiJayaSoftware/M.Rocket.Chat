@@ -3,7 +3,7 @@ import { api } from '@rocket.chat/core-services';
 import { settings } from '../../../app/settings/server/cached';
 import { isRunningMs } from '../../../server/lib/isRunningMs';
 import { FederationService } from '../../../server/services/federation/service';
-import { LicenseService } from '../../app/license/server/license.internalService';
+// import { LicenseService } from '../../app/license/server/license.internalService';
 import { OmnichannelEE } from '../../app/livechat-enterprise/server/services/omnichannel.internalService';
 import { EnterpriseSettings } from '../../app/settings/server/settings.internalService';
 import { InstanceService } from '../local-services/instance/service';
@@ -14,7 +14,7 @@ import { VoipFreeSwitchService } from '../local-services/voip-freeswitch/service
 // TODO consider registering these services only after a valid license is added
 api.registerService(new EnterpriseSettings());
 api.registerService(new LDAPEEService());
-api.registerService(new LicenseService());
+// api.registerService(new LicenseService());
 api.registerService(new MessageReadsService());
 api.registerService(new OmnichannelEE());
 api.registerService(new VoipFreeSwitchService((id) => settings.get(id)));

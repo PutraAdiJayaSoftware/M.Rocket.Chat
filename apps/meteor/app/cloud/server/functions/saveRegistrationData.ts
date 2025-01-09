@@ -1,4 +1,3 @@
-import { applyLicense } from '@rocket.chat/license';
 import { Settings } from '@rocket.chat/models';
 
 import { syncCloudData } from './syncWorkspace/syncCloudData';
@@ -119,6 +118,5 @@ export async function saveRegistrationDataManual({
 		client_secret_expires_at,
 		publicKey,
 		registration_client_uri,
-	});
-	await applyLicense(licenseData.license, true);
+	}); 
 }
